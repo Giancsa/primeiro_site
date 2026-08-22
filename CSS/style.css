@@ -2,6 +2,8 @@
 css\style.css
 Folhas de estilo do template do site
 */
+/*Importa a donte Robot do google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap')
 
 /*Reset Geral*/
 
@@ -13,5 +15,13 @@ Folhas de estilo do template do site
 /* Fonte padrão*/
 
 html, body {
-    font-family: ;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    /* A linha a cima ativa a unidade de medida "rem" onde:
+     1rem = 16px
+    .5rem = 8px
+    .25 rem = 4px
+    2rem = 32px
+    3 rem = 48px
+    */
 }
