@@ -3,6 +3,15 @@ css\style.css
 Folhas de estilo do template do site
 */
 
-body {
-background-color: beige;
+/*Reset Geral*/
+
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Fonte padrão*/
+
+html, body {
+    font-family: ;
 }
