@@ -7,7 +7,7 @@ Folhas de estilo do template do site
 
 /*Reset Geral*/
 
-*{
+* {
     box-sizing: border-box;
     outline: none;
 }
