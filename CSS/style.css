@@ -3,7 +3,13 @@ css\style.css
 Folhas de estilo do template do site
 */
 /*Importa a donte Robot do google Fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+/*
+Importa a biblioteca de ícones FontAwesome
+Referências: https://fontawesome.com
+*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
+
 
 /*Reset Geral*/
 
@@ -14,7 +20,14 @@ Folhas de estilo do template do site
 
 /* Fonte padrão*/
 
-html, body {
+html,
+body {
+    /* Reset nas margens e enchimentos */
+    position: relative;
+    /* Permite usar height nos elementos div */
+
+
+
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 16px;
     /* A linha a cima ativa a unidade de medida "rem" onde:
@@ -24,4 +37,69 @@ html, body {
     2rem = 32px
     3 rem = 48px
     */
+}
+
+/* Reset dos títulos e parágrafos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: .5rem;
+}
+
+/* Padroniza links */
+a {
+    color: steelblue;
+    text-decoration: none;
+}
+
+/*Muda a cor do link ao passar o mouse*/
+a:hover {
+    color: orangered;
+}
+
+body {
+    /* background: linear-gradient(to right, blue, red, cyan); */
+    background-image: url("../CSS/img/bg01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Elemento Wrap */
+#wrap {
+    background-color: aquamarine;
+    max-width: 1080px;
+    margin: auto;
+}
+
+/* Imagem responsiva */
+.azul {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/*header é filho direto de wrap*/
+#wrap > header {
+    background-color: orange;
+}
+#wrap > header img {
+    display: block;
+    width: 90px;
+    border-radius: 50%;
+    
+}
+.logotitle {
+    display: flex;
+    align-items: center;
+}
+
+.logotitle h1{
+    
 }
