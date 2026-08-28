@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Importa o CSS do template (principal) -->
     <link rel="stylesheet" href="css/style.css">
-    <!--Folas de estilo somente desta pagina-->
+    <link rel="icon" href="img/logo01.jpg">
+    
     <title>FirstSteps</title>
 </head>
 
@@ -18,8 +19,8 @@
 
         <header>
             <!-- Logotipo clicável para a página inicial -->
-            <div class="logotitle">
-                <a href="index.html">
+            <div class="logotitle" title="Clique para a página inicial" aria-label="Clique para a página inicial">
+                <a href="index.html" id="myLogo">
                     <img src="img/logo01.jpg" alt="Logotipo do FirstSteps">
                 </a>
                 <h1>FirstSteps</h1>
@@ -27,25 +28,30 @@
 
             <form class="header-search" action="https://www.google.com/search" target="_blank" method="get">
                 <input type="search" name="q" placeholder="Pesquisar...">
-                <button type="submit" title="Clique para pesquisar" aria-label="Clique para pesquisar" ><i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
+                <button type="submit" title="Clique para pesquisar" aria-label="Clique para pesquisar"><i
+                        class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
             </form>
 
         </header>
 
         <nav aria-label="Menu principal">
 
-            <a href="index.html" title="Clique para página inicial" aria-label="Pagina inicial">
+            <a href="index.html" title="Página inicial">
                 <i class="fa-solid fa-house fa-fw"></i>
-                <span>Início</span></a>
-            <a href="content.html" title=" Conteúdo" aria-label="Conteúdo">
+                <span>Início</span>
+            </a>
+            <a href="content.html" title="Conteúdo do site" aria-label="Conteúdo do site">
                 <i class="fa-solid fa-file-lines fa-fw"></i>
-                <span>Conteúdo</span></a>
-            <a href="contacts.html" title="Faça Contato" aria-label="Faça Contato">
+                <span>Conteúdo</span>
+            </a>
+            <a href="contacts.html" title="Faça contato" aria-label="Faça contato">
                 <i class="fa-solid fa-comments fa-fw"></i>
-                <span>Contatos</span></a>
-            <a href="about.html" title = "Sobre nós" aria-label="Sobre nós">
-                <i class="fa-solid fa-info fa-fw"></i>
-                <span>Sobre</span></a>
+                <span>Contatos</span>
+            </a>
+            <a href="about.html" title="Mais informações" aria-label="Mais informações">
+                <i class="fa-solid fa-circle-info fa-fw"></i>
+                <span>Sobre</span>
+            </a>
 
         </nav>
 
@@ -54,6 +60,7 @@
             <section>
 
                 <h2>Título desta página</h2>
+
                 <p class="azul">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque pariatur nesciunt ullam
                     ex. Commodi
                     quam ducimus beatae porro possimus exercitationem consequatur accusantium quis, dicta quas illo
@@ -85,7 +92,7 @@
                     <li><a href="https://youtube.com" target="_blank">Youtube</a></li>
                 </ul>
 
-                <img class="azul" src="https://picsum.photos/400/200" alt="Imagem aleatória">
+                <img class="rimg" src="https://picsum.photos/400/200" alt="Imagem aleatória">
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eius libero quos, commodi explicabo
                     voluptates voluptas temporibus nam facilis dolorum, dicta rerum repellendus! Minima numquam deleniti
@@ -98,6 +105,7 @@
                 <p class="azul">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora commodi, dicta aliquam
                     beatae sint libero similique necessitatibus quod ratione deleniti consequuntur amet aperiam aut.
                     Commodi quia dicta cupiditate odit provident.</p>
+
 
             </section>
 
@@ -126,7 +134,30 @@
 
         </footer>
 
+        <!-- Hack para margin no final da tela -->
+        <div class="end-margin">&nbsp;</div>
+
     </div>
+
+    <!-- Aviso de cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+
+        <div class="cookie-text">
+            <strong>🍪 Este site utiliza cookies</strong>
+            <p>
+                Utilizamos cookies para melhorar sua experiência de navegação.
+                Ao continuar navegando, você concorda com o uso de cookies.
+            </p>
+        </div>
+
+        <button id="cookie-accept" type="button">
+            Aceitar
+        </button>
+
+    </div>
+
+    <script>const pageName = "Home Page"</script>
+    <script src="js/scripts.js"></script>
 
 </body>
 
