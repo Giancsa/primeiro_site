@@ -24,9 +24,9 @@ Referências: https://fontawesome.com
     --wrap-max-width: 1080px;
     --default-links: steelblue;
     --default-links-hover: orangered;
-    --body-background-image: url("../img/bg02.png");
+    --body-background-image: url("../img/bgheader01.jpg");
     --body-background-color: rgb(185, 185, 185);
-    --header-background-color: rgba(255, 165, 0, .8);
+    --header-background-color: black;
     --header-logo-font: Arial, helvetica, sans-serif;
     --header-title-stroke: .75px white;
     --nav-footer-background-color: black;
@@ -36,6 +36,7 @@ Referências: https://fontawesome.com
     --nav-menu-color: white;
     --nav-menu-hover-color: white;
     --nav-menu-hover-bg-color: rgba(255, 255, 255, .4);
+    --header-bg-img: url("../img/bgheader01.jpg");
 }
 
 /***************
@@ -137,11 +138,12 @@ body {
 Seletor: parent > direct-child 
 */
 #wrap>header {
-    background-color: var(--header-background-color);
-    border-radius: .5rem;
+    background-image: var(--header-bg-img);
+    border-radius: .5rem ;
     margin: .5rem;
     display: flex;
     flex-direction: column;
+   
 }
 
 /* 
@@ -156,11 +158,11 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
 
 /* Logotipo */
 .logotitle img {
-    width: 90px;
+    width: 350px;
     margin: .5rem;
     /* Deixa a imagem `quadrada`, redonda */
     display: block;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 /* Nome do site */
