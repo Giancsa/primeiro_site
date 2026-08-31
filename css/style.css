@@ -1,0 +1,534 @@
+/*
+css\style.css
+Folhas de estilo do template do site.
+*/
+
+/*
+Importa fonte Robot do Google Fonts
+Referências: https://fonts.google.com
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*
+Importa a biblioteca de ícones FontAwesome
+Referências: https://fontawesome.com
+*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
+
+
+/**************************************
+ * Variáveis com estilos de uso geral *
+ **************************************/
+
+:root {
+    --wrap-max-width: 1080px;
+    --default-links: steelblue;
+    --default-links-hover: orangered;
+    --body-background-image: url("../img/bgheader01.jpg");
+    --body-background-color: rgb(185, 185, 185);
+    --header-background-color: black;
+    --header-logo-font: Arial, helvetica, sans-serif;
+    --header-title-stroke: .75px white;
+    --nav-footer-background-color: black;
+    --article-section-background-color: rgba(255, 255, 255, .8);
+    --aside-background-color: rgba(238, 238, 238, .8);
+    --top-search-border: 3px dotted white;
+    --nav-menu-color: white;
+    --nav-menu-hover-color: white;
+    --nav-menu-hover-bg-color: rgba(255, 255, 255, .4);
+    --header-bg-img: url("../img/bgheader01.jpg");
+}
+
+/***************
+ * Reset Geral *
+ ***************/
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Elementos raiz */
+html,
+body {
+    /* Reset nas margens e enchimentos */
+    position: relative;
+    /* Permite usar height nos elementos div */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* Fonte padrão e tamanho */
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    /*
+    A linha acima define a unidade de medida "rem" onde:
+    1rem = 16px
+    .5rem ou 0.5rem = 8px
+    .25rem ou 0.25rem = 4px
+    2rem = 32px
+    3rem = 48px
+    */
+}
+
+/* 
+Reset dos títulos e parágrafos
+trocando margin por padding
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: .5rem 0;
+}
+
+/* Padroniza links */
+a {
+    color: var(--default-links);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--default-links-hover);
+}
+
+/* Fundo da página */
+body {
+    /* background: linear-gradient(to right, blue, red, cyan); */
+    background-image: var(--body-background-image);
+    background-color: var(--body-background-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Imagens responsivas */
+.rimg {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/**************************
+ * Estilizando o template *
+ **************************/
+
+/* Elemento Wrap (#wrap) */
+#wrap {
+    max-width: var(--wrap-max-width);
+    margin: auto;
+    position: relative;
+
+    /* Forçar o footer no final da tela - Sticky footer */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/***********************
+ * Cabeçalho da página *
+ ***********************/
+
+/*
+<header> que é filho direto (>) de <div#wrap> 
+Seletor: parent > direct-child 
+*/
+#wrap>header {
+    background-image: var(--header-bg-img);
+    border-radius: .5rem;
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 
+Logotipo e título do site (div.logotitle) usando Flexbox
+Referências: https://www.w3schools.com/css/css3_flexbox.asp 
+*/
+.logotitle {
+    /* `display: flex` alinha os elementos lado-a-lado por padrão */
+    display: flex;
+    align-items: center;
+}
+
+/* Logotipo */
+.logotitle img {
+    width: 350px;
+    margin: .5rem;
+    /* Deixa a imagem `quadrada`, redonda */
+    display: block;
+    border-radius: 10%;
+}
+
+/* Nome do site */
+.logotitle h1 {
+    font-family: var(--header-logo-font);
+    font-weight: bold;
+    /* Experimental: adicionar uma borda ao texto */
+    -webkit-text-stroke: var(--header-title-stroke);
+}
+
+/* Formulário de pesquisa no cabeçalho */
+.header-search {
+    padding: 1rem;
+    display: flex;
+    border-top: var(--top-search-border);
+}
+
+/* Reset dos `parent` do formulário de pesquisa */
+.header-search input,
+.header-search button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+/* Só o campo de pesquisa */
+.header-search input {
+    padding: .5rem 1rem;
+    border-radius: .3rem 0 0 .3rem;
+    /* Faz o elemento ocupar todo o espaço não usado do elemento pai */
+    flex-grow: 1;
+}
+
+.header-search button {
+    padding: .5rem;
+    border-radius: 0 .3rem .3rem 0;
+    /* Modifica o cursor no mouse. Não funciona em `touch` */
+    cursor: pointer;
+}
+
+/******************
+ * Menu principal *
+ ******************/
+
+#wrap>nav {
+    background-color: var(--nav-footer-background-color);
+    display: flex;
+    align-items: center;
+    margin: .5rem;
+    margin-top: 0;
+    border-radius: .5rem;
+    border: 1px solid black;
+    /* Posiciona os elementos filho à direita */
+    justify-content: end;
+}
+
+/* Opções do menu */
+#wrap>nav a {
+    display: flex;
+    /* Os ícones ficam acima das label */
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem;
+    color: var(--nav-menu-color);
+    /* Adiciona 200 ms de transição entre os efeitos */
+    transition: .2s;
+}
+
+/* Ao passar o ponteiro sobre as opções do menu */
+#wrap>nav a:hover {
+    color: var(--nav-menu-hover-color);
+    background-color: var(--nav-menu-hover-bg-color);
+}
+
+/* Seleciona somente o primeiro elemento filho do tipo <a> */
+#wrap>nav a:first-child {
+    margin-right: auto;
+    border-radius: .4rem 0 0 .4rem;
+}
+
+/* Seleciona somente o último elemento filho do tipo <a> */
+#wrap>nav a:last-child {
+    border-radius: 0 .4rem .4rem 0;
+}
+
+/* Seleciona os ícones → Tag <i> */
+#wrap>nav a i {
+    font-size: 1.8rem;
+    padding-bottom: .25rem;
+}
+
+/*****************************
+ * Main e conteúdo principal *
+ *****************************/
+
+#wrap>main {
+    position: relative;
+    height: 100%;
+    display: flex;
+    /* Posiciona os filhos em linhas, um sobre o outro */
+    flex-direction: column;
+
+    /* Forçar o footer no final da tela */
+    flex-grow: 1;
+}
+
+/* Todos os filhos diretos do <main> */
+#wrap>main>section,
+#wrap>main>article,
+#wrap>main>aside {
+    margin: .5rem;
+    margin-top: 0;
+    border-radius: .5rem;
+}
+
+/* Elementos com o conteúdo principal */
+#wrap>main section,
+#wrap>main article {
+    background-color: var(--article-section-background-color);
+    padding: 1.5rem;
+
+    /* Forçar o footer no final da tela */
+    flex-grow: 1;
+}
+
+/* Elemento com conteúdo auxiliar */
+#wrap>main aside {
+    background-color: var(--aside-background-color);
+    padding: 1rem;
+}
+
+/**********
+ * Rodapé *
+ **********/
+
+#wrap>footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--nav-footer-background-color);
+    margin: 0 .5rem;
+    border-radius: .5rem;
+    color: white;
+}
+
+/* CONTEINER PAI: Controla a distribuição das caixas */
+.grade-conteudo {
+  display: grid;
+  /* Mágica do deslocamento: mínimo de 200px e máximo de 1fr (ocupa o espaço igual) */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+  width: 100%;
+  /* Permite que as 4 caixas fiquem lado a lado em telas grandes (4 * 250px + gaps) */
+  max-width: 1100px; 
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+/* CAIXAS FILHAS: Estilo individual com proporção 250x350 fixa */
+.cartao-conteudo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333;
+  width: 100%;
+  /* Define e trava a proporção exata de 250 de largura por 350 de altura */
+  aspect-ratio: 250 / 350; 
+  
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.cartao-conteudo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Organização interna da Imagem */
+.cartao-imagem img {
+  width: 100%;
+  height: 140px; /* Altura fixa para a imagem do card */
+  object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
+}
+
+/* Organização interna do Texto */
+.cartao-texto {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Faz o texto ocupar o resto do espaço para alinhar o botão */
+  overflow: hidden;
+}
+
+.cartao-texto h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.cartao-texto p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  /* Cria uma barra de rolagem sutil se o texto passar do espaço do card */
+  overflow-y: auto; 
+}
+
+.botao-ler {
+  font-size: 0.85rem;
+  color: #007bff;
+  font-weight: bold;
+  margin-top: auto; /* Empurra o botão sempre para o rodapé do card */
+}
+
+
+/* Hack para margem do último elemento */
+.end-margin {
+    font-size: .4rem;
+}
+
+/* Links para a home e topo da página */
+#wrap>footer a {
+    font-size: 2rem;
+    color: var(--nav-menu-color);
+    padding: .25rem;
+}
+
+/* Ao passar o curso do mouse sobre os ícones */
+#wrap>footer a:hover {
+    color: var(--nav-menu-hover-color);
+    background-color: var(--nav-menu-hover-bg-color);
+}
+
+/* Seleciona somente o primeiro elemento filho do tipo <a> */
+#wrap>footer a:first-child {
+    border-radius: .4rem 0 0 .4rem;
+}
+
+/* Seleciona somente o último elemento filho do tipo <a> */
+#wrap>footer a:last-child {
+    border-radius: 0 .4rem .4rem 0;
+}
+
+/********************
+ * Aviso de Cookies *
+ ********************/
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 20px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+    z-index: 9999;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cookie-text p {
+    margin: 0;
+}
+
+#cookie-accept {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004953;
+    color: white;
+    cursor: pointer;
+}
+
+#cookie-accept:hover {
+    opacity: 0.85;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cookie-accept {
+        width: 100%;
+    }
+}
+
+/**********************************
+ * Responsividade e Media Queries *
+ **********************************/
+
+/* Quando a largura da tela for de 640px ou mais */
+@media screen and (min-width: 640px) {
+
+    /* Cabeçalho <header> responsivo */
+    #wrap>header {
+        /* Posiciona o formulário ao lado do título */
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Formulário de pesquisa responsivo */
+    .header-search {
+        border: none;
+    }
+
+    /* Posiciona os ícones ao lado das label */
+    #wrap>nav a {
+        flex-direction: row;
+        padding: .65rem 1rem;
+    }
+
+    /* Ajsuta tamanho dos ícones do menu principal */
+    #wrap>nav a i {
+        font-size: 1.2rem;
+        padding-right: .25rem;
+    }
+
+}
+
+/* Quando a largura da tela for de 768px ou mais */
+@media screen and (min-width: 768px) {
+
+    #wrap>main {
+        /* Posiciona os filhos em linhas, um sobre o outro */
+        flex-direction: row;
+    }
+
+    /* Elemento com conteúdo auxiliar */
+    #wrap>main aside {
+        margin-left: 0;
+
+        /* Fixa a lagura do <aside> em 220px */
+        min-width: 220px;
+        max-width: 220px;
+    }
+}
