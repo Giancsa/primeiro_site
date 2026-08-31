@@ -30,7 +30,7 @@ Referências: https://fontawesome.com
     --header-logo-font: Arial, helvetica, sans-serif;
     --header-title-stroke: .75px white;
     --nav-footer-background-color: black;
-    --article-section-background-color: rgba(255,255,255,.8);
+    --article-section-background-color: rgba(255, 255, 255, .8);
     --aside-background-color: rgba(238, 238, 238, .8);
     --top-search-border: 3px dotted white;
     --nav-menu-color: white;
@@ -122,7 +122,7 @@ body {
     max-width: var(--wrap-max-width);
     margin: auto;
     position: relative;
-    
+
     /* Forçar o footer no final da tela - Sticky footer */
     min-height: 100vh;
     display: flex;
@@ -139,11 +139,11 @@ Seletor: parent > direct-child
 */
 #wrap>header {
     background-image: var(--header-bg-img);
-    border-radius: .5rem ;
+    border-radius: .5rem;
     margin: .5rem;
     display: flex;
     flex-direction: column;
-   
+
 }
 
 /* 
@@ -308,6 +308,84 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
     color: white;
 }
 
+/* CONTEINER PAI: Controla a distribuição das caixas */
+.grade-conteudo {
+  display: grid;
+  /* Mágica do deslocamento: mínimo de 200px e máximo de 1fr (ocupa o espaço igual) */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+  width: 100%;
+  /* Permite que as 4 caixas fiquem lado a lado em telas grandes (4 * 250px + gaps) */
+  max-width: 1100px; 
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+/* CAIXAS FILHAS: Estilo individual com proporção 250x350 fixa */
+.cartao-conteudo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #333;
+  width: 100%;
+  /* Define e trava a proporção exata de 250 de largura por 350 de altura */
+  aspect-ratio: 250 / 350; 
+  
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.cartao-conteudo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Organização interna da Imagem */
+.cartao-imagem img {
+  width: 100%;
+  height: 140px; /* Altura fixa para a imagem do card */
+  object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
+}
+
+/* Organização interna do Texto */
+.cartao-texto {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Faz o texto ocupar o resto do espaço para alinhar o botão */
+  overflow: hidden;
+}
+
+.cartao-texto h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.cartao-texto p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  /* Cria uma barra de rolagem sutil se o texto passar do espaço do card */
+  overflow-y: auto; 
+}
+
+.botao-ler {
+  font-size: 0.85rem;
+  color: #007bff;
+  font-weight: bold;
+  margin-top: auto; /* Empurra o botão sempre para o rodapé do card */
+}
+
+
 /* Hack para margem do último elemento */
 .end-margin {
     font-size: .4rem;
@@ -397,6 +475,7 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
         flex-direction: column;
         align-items: stretch;
     }
+
     #cookie-accept {
         width: 100%;
     }
@@ -450,6 +529,6 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
 
         /* Fixa a lagura do <aside> em 220px */
         min-width: 220px;
-        max-width: 220px;       
+        max-width: 220px;
     }
 }
