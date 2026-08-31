@@ -154,16 +154,19 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
     /* `display: flex` alinha os elementos lado-a-lado por padrão */
     display: flex;
     align-items: center;
+    
 }
 
 /* Logotipo */
 .logotitle img {
-    width: 350px;
+    width:auto;
+    height: 150px;
     margin: .5rem;
     /* Deixa a imagem `quadrada`, redonda */
     display: block;
     border-radius: 10%;
 }
+    
 
 /* Nome do site */
 .logotitle h1 {
@@ -308,17 +311,21 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
     color: white;
 }
 
-/* CONTEINER PAI: Controla a distribuição das caixas */
+/* Padrão para celular: uma embaixo da outra */
 .grade-conteudo {
   display: grid;
-  /* Mágica do deslocamento: mínimo de 200px e máximo de 1fr (ocupa o espaço igual) */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: 1fr; 
   gap: 20px;
   width: 100%;
-  /* Permite que as 4 caixas fiquem lado a lado em telas grandes (4 * 250px + gaps) */
-  max-width: 1100px; 
-  margin: 20px 0;
   box-sizing: border-box;
+}
+
+/* Quando a tela for maior que 768px (computador/tablet deitado): vira 3 colunas */
+@media (min-width: 768px) {
+  .grade-conteudo {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 830px;
+  }
 }
 
 /* CAIXAS FILHAS: Estilo individual com proporção 250x350 fixa */
@@ -512,6 +519,7 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
         font-size: 1.2rem;
         padding-right: .25rem;
     }
+    
 
 }
 
@@ -531,4 +539,9 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
         min-width: 220px;
         max-width: 220px;
     }
+     .logotitle img{
+        height: 200px;
+       
+    }
+   
 }
